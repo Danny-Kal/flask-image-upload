@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Upload Image</title>
+  </head>
+  <body>
+    <div>
+      <h1>Upload an Image</h1>
+      <form method="post" enctype="multipart/form-data">
+        <div>
+          <input type="file" name="file">
+        </div>
+        <div>
+          <button type="submit">Upload</button>
+        </div>
+      </form>
+      {% if request.args.get('filename') %}
+      <div>
+        <h2>Uploaded Image:</h2>
+        <img src="{{ url_for('static', filename='uploads/' ~ request.args.get('filename')) }}" alt="Uploaded Image">
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

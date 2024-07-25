@@ -22,7 +22,8 @@ def allowed_file(filename):
 
 @app.route('/')
 def upload_form():
-    return render_template('upload.html')
+    filename = request.args.get('filename')
+    return render_template('upload.html', filename=filename)
 
 def upload_image_to_blob(file):
     logging.info("Uploading image to blob storage")

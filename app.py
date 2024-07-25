@@ -14,7 +14,7 @@ connection_string = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
 
 # Initialize the BlobServiceClient
 blob_service_client = BlobServiceClient.from_connection_string(connection_string)
-container_client = blob_service_client.get_container_client("images")
+container_client = blob_service_client.get_container_client("uploaded-images")
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS

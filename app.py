@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from azure.storage.blob import BlobServiceClient
 import os
+import logging
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
@@ -36,4 +37,5 @@ def upload_file():
     return redirect(request.url)
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO)
     app.run(host='0.0.0.0', port=5000, debug=True)
